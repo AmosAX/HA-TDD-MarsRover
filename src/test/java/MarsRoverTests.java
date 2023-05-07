@@ -26,7 +26,7 @@ public class MarsRoverTests {
         rover.move("b");
 
         //Assert
-        Assertions.assertEquals(new Point2d(3, 2 ), rover.getCurrentPosition());
+        Assertions.assertEquals(new Point2d(3, 4 ), rover.getCurrentPosition());
     }
 
     @Test

@@ -37,7 +37,21 @@ public class MarsRoverImpl implements MarsRover {
         }
 
     private void moveBackward() {
+        switch (currentDirection) {
+            case NORTH:
+                CurrentYPos--;
+                break;
+            case SOUTH:
+                CurrentYPos++;
+                break;
+            case EAST:
+                CurrentXPos--;
+                break;
+            case WEST:
+                CurrentXPos++;
+                break;
 
+        }
     }
 
     //TODO implement
