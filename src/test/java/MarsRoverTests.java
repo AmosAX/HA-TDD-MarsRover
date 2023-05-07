@@ -13,7 +13,7 @@ public class MarsRoverTests {
         rover.move("f");
 
         //Assert
-        Assertions.assertEquals(new Point2d(3, 4), rover.getCurrentPosition());
+        Assertions.assertEquals(new Point2d(3, 2), rover.getCurrentPosition());
     }
 
     @Test
