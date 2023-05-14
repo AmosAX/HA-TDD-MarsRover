@@ -4,11 +4,17 @@ public class MarsRoverImpl implements MarsRover {
     int CurrentYPos;
     Direction currentDirection;
 
+    int gridHeight;
+    int gridWidth;
 
-    public MarsRoverImpl(Point2d startingPoint, Direction startingDirection){
+
+    public MarsRoverImpl(Point2d startingPoint, Direction startingDirection, int gridHeight,int gridWidth){
 
         this.CurrentXPos= startingPoint.x();
         this.CurrentYPos= startingPoint.y();
+
+        this.gridHeight = gridHeight;
+        this.gridWidth = gridWidth;
 
         this.currentDirection = startingDirection;
         //TODO implement
@@ -39,16 +45,16 @@ public class MarsRoverImpl implements MarsRover {
     private void moveBackward() {
         switch (currentDirection) {
             case NORTH:
-                CurrentYPos--;
+                CurrentYPos = (CurrentYPos - 1 + gridHeight) % gridHeight;
                 break;
             case SOUTH:
-                CurrentYPos++;
+                CurrentYPos = (CurrentYPos + 1) % gridHeight;
                 break;
             case EAST:
-                CurrentXPos--;
+                CurrentXPos = (CurrentXPos - 1 + gridWidth) % gridWidth;
                 break;
             case WEST:
-                CurrentXPos++;
+                CurrentXPos = (CurrentXPos + 1) % gridWidth;
                 break;
 
         }
@@ -91,16 +97,16 @@ public class MarsRoverImpl implements MarsRover {
     private void moveForward() {
         switch (currentDirection) {
             case NORTH:
-                CurrentYPos++;
+                CurrentYPos = (CurrentYPos + 1) % gridHeight;
                 break;
             case SOUTH:
-                CurrentYPos--;
+                CurrentYPos = (CurrentYPos - 1 + gridHeight) % gridHeight;
                 break;
             case EAST:
-                CurrentXPos++;
+                CurrentXPos = (CurrentXPos + 1) % gridWidth;
                 break;
             case WEST:
-                CurrentXPos--;
+                CurrentXPos = (CurrentXPos - 1 + gridWidth) % gridWidth;
                 break;
         }
     }
